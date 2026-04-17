@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Infinity Shop - Anti-gravity Moon Lamp</title>
+    <!-- Google Fonts for Modern Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Top Banner for Swiss localization -->
+    <div class="top-banner" data-i18n="top_banner">
+      <strong>Local Swiss Stock</strong> - 48h shipping with Swiss Post - No customs fees
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-left">
+        <ul class="nav-links">
+          <li><a href="#buy" data-i18n="nav_shop">Shop</a></li>
+          <li><a href="#story" data-i18n="nav_story">Our Story</a></li>
+          <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="nav-logo">
+        <span class="logo-text">Infinity Shop</span>
+      </div>
+      <div class="nav-right">
+        <div class="language-selector">
+          <select class="lang-dropdown" id="langSwitcher">
+            <option value="en">EN</option>
+            <option value="de">DE</option>
+            <option value="fr">FR</option>
+            <option value="it">IT</option>
+          </select>
+        </div>
+        <div class="currency-selector">
+          <img src="https://flagcdn.com/w20/ch.png" alt="CH" class="flag-icon">
+          <span>CHF</span>
+        </div>
+        <button class="icon-btn" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav Toggle -->
+    <button class="mobile-nav-toggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <header class="hero">
+      <div class="stars"></div>
+      <div class="hero-content">
+        <div class="hero-text-container">
+          <h1 class="hero-title">
+            <span class="discount-badge" data-i18n="hero_discount">40% OFF</span> <span data-i18n="hero_title_1">on the</span>
+            <span class="highlight" data-i18n="hero_title_highlight">Best Anti-gravity</span> <span data-i18n="hero_title_2">Moon Lamp</span>
+          </h1>
+          <p class="hero-subtitle" data-i18n="hero_subtitle">Magic in your room. Floats, rotates smoothly, and lights up your nights with authentic lunar detail.</p>
+          <div class="hero-cta">
+            <button id="buy" class="btn btn-primary" data-i18n="hero_btn">GET MY MOON - 40% OFF</button>
+            <p class="scarcity-text" data-i18n="hero_scarcity">Offer ends soon. Limited stock.</p>
+            <div class="payment-methods">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" class="visa-logo" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/b/b7/MasterCard_Logo.svg" alt="MasterCard" class="mc-logo" />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Twint_logo_2022.svg" alt="TWINT" class="twint-logo" />
+            </div>
+          </div>
+        </div>
+        <div class="hero-image-container">
+          <img src="/hero_luni_notext_1776320110171.png" alt="Levitating Moon Lamp" class="hero-image floating-animation" />
+          <div class="glow-effect"></div>
+          
+          <!-- Trust Badges -->
+          <div class="trust-badges">
+            <div class="badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              <span data-i18n="badge_shipping">Insured International Shipping</span>
+            </div>
+            <div class="badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              <span data-i18n="badge_warranty">Official Warranty</span>
+            </div>
+            <div class="badge">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              <span data-i18n="badge_payment">100% Secure Payment</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- NEW SWISS TRUST SECTION -->
+    <section class="trust-swiss" style="text-align:center; padding: 3rem 5%; background: var(--card-bg); border-bottom: 1px solid var(--border-color);">
+      <div style="max-width: 800px; margin: 0 auto;">
+         <img src="https://flagcdn.com/w40/ch.png" alt="CH" style="border-radius: 4px; margin-bottom: 1rem;">
+         <p style="font-size: 1.2rem; font-weight: 600; color: var(--text-primary); line-height: 1.5;" data-i18n="swiss_trust_message">
+           Based in Switzerland. Every unit is tested and manually calibrated in our workshop before shipping via Swiss Post in 48h.
+         </p>
+      </div>
+    </section>
+
+    <!-- Product Feature Section -->
+    <section class="lifestyle-section">
+      <div class="lifestyle-grid">
+        <div class="lifestyle-image-box">
+           <img src="/product_moon_lamp_lifestyle_1776318693467.png" alt="Moon lamp on desk" class="lifestyle-img" />
+        </div>
+        <div class="lifestyle-text">
+          <h2 data-i18n="feature_title">Designed to Inspire</h2>
+          <p data-i18n="feature_desc">Luni's electromagnetic levitation technology allows the moon to float and spin silently in the air, creating a hypnotic focal point for any space.</p>
+          <ul class="feature-list">
+            <li><span>✓</span> <span data-i18n="feature_1">High-precision 3D lunar printing</span></li>
+            <li><span>✓</span> <span data-i18n="feature_2">Silent magnetic levitation</span></li>
+            <li><span>✓</span> <span data-i18n="feature_3">Touch control for warm/cool light tones</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">Infinity Shop</div>
+        <p data-i18n="footer_desc">Bringing magic to your everyday life.</p>
+        <div class="footer-links">
+          <a href="#" data-i18n="footer_terms">Terms of Service</a>
+          <a href="#" data-i18n="footer_privacy">Privacy Policy</a>
+          <a href="#" data-i18n="footer_contact">Contact</a>
+        </div>
+        <p class="copyright" data-i18n="footer_copy">© 2026 Luni. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

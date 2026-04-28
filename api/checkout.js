@@ -34,9 +34,7 @@ export default async function handler(req, res) {
 
     // Create Checkout Session
     const session = await stripe.checkout.sessions.create({
-      automatic_payment_methods: {
-        enabled: true,
-      },
+      payment_method_types: ['card'],
       shipping_address_collection: {
         allowed_countries: ['CH'], // Strictly Switzerland
       },

@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: miguezon-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./api:/app
+    restart: unless-stopped
+
+  # Ollama runs on the HOST at localhost:11434
+  # Flutter app connects to: http://localhost:11434/api/generate

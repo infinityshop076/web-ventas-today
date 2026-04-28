@@ -3,41 +3,41 @@ import './style.css'
 // 1. Translations Dictionary
 const translations = {
   en: {
-    top_banner: "<strong>Local Swiss Stock</strong> - 48h shipping with Swiss Post - No customs fees",
+    top_banner: "<strong>Official Swiss Stock</strong> - 48h shipping with Swiss Post - No customs fees",
     nav_shop: "Shop",
     nav_story: "Our Story",
     nav_faq: "FAQ",
     nav_contact: "Contact",
-    hero_discount: "40% OFF",
-    hero_title_1: "on the",
-    hero_title_highlight: "Best Anti-gravity",
-    hero_title_2: "Moon Lamp",
-    hero_subtitle: "Magic in your room. Floats, rotates smoothly, and lights up your nights with authentic lunar detail.",
-    hero_btn: "GET MY MOON - 40% OFF",
+    hero_discount: "OFFER -30%",
+    hero_title_1: "the original",
+    hero_title_highlight: "360° Spill-Proof",
+    hero_title_2: "Baby Gyro Bowl",
+    hero_subtitle: "Say goodbye to food on the floor! The ultimate mess-free bowl that stays upright no matter how much your baby plays with it.",
+    hero_btn: "GET THE GYRO BOWL - 30% OFF",
     hero_scarcity: "Offer ends soon. Limited stock.",
-    badge_shipping: "Insured International Shipping",
-    badge_warranty: "Official Warranty",
+    badge_shipping: "Fast Swiss Shipping",
+    badge_warranty: "BPA-Free Certified",
     badge_payment: "100% Secure Payment",
-    swiss_trust_message: "Based in Switzerland. Every unit is tested and manually calibrated in our workshop before shipping via Swiss Post in 48h.",
-    feature_title: "Designed to Inspire",
-    feature_desc: "Infinity Shop's electromagnetic levitation technology allows the moon to float and spin silently in the air, creating a hypnotic focal point for any space.",
-    feature_1: "High-precision 3D lunar printing",
-    feature_2: "Silent magnetic levitation",
-    feature_3: "Touch control for warm/cool light tones",
+    swiss_trust_message: "Shipping from Switzerland. We ensure every bowl meets our safety standards before it reaches your home in 48h.",
+    feature_title: "Perfect for Messy Eaters",
+    feature_desc: "Our Gyro Bowl uses advanced gyroscopic technology to keep the inner bowl level at all times. It's the secret weapon for every parent who wants a cleaner home.",
+    feature_1: "360-degree rotating inner bowl",
+    feature_2: "100% BPA-Free and Food-Grade material",
+    feature_3: "Dishwasher safe and includes protective lid",
     shop_stock: "In stock only",
     shop_sort: "Sort by:",
     shop_sort_featured: "Featured",
-    save_40: "Save 40%",
+    save_40: "Save 30%",
     save_30: "Save 30%",
     add_to_cart: "Add to Cart",
     add_to_cart_2: "Add to Cart",
     add_to_cart_3: "Add to Cart",
-    product_3_name: "Premium Gift Pack",
-    footer_desc: "Bringing magic to your everyday life.",
+    product_3_name: "Family Pack (Set of 3)",
+    footer_desc: "Making parenting a little easier, one bowl at a time.",
     footer_terms: "Terms of Service",
     footer_privacy: "Privacy Policy",
     footer_contact: "Contact",
-    footer_copy: "© 2026 Infinity Shop. All rights reserved.",
+    footer_copy: "© 2026 GyroBowl Shop. All rights reserved.",
     added_to_cart: "Added!"
   },
   de: {
@@ -153,6 +153,44 @@ const translations = {
     footer_contact: "Contatto",
     footer_copy: "© 2026 Infinity Shop. Tutti i diritti riservati.",
     added_to_cart: "Aggiunto!"
+  },
+  es: {
+    top_banner: "<strong>Stock Oficial en Suiza</strong> - Envío 48h con Swiss Post - Sin gastos de aduana",
+    nav_shop: "Tienda",
+    nav_story: "Nuestra Historia",
+    nav_faq: "FAQ",
+    nav_contact: "Contacto",
+    hero_discount: "OFERTA -30%",
+    hero_title_1: "el original",
+    hero_title_highlight: "Plato 360°",
+    hero_title_2: "Antiderrames Gyro Bowl",
+    hero_subtitle: "¡Dile adiós a la comida por el suelo! El plato definitivo que se mantiene estable sin importar cuánto juegue tu bebé.",
+    hero_btn: "CONSEGUIR MI GYRO BOWL - 30% DTO",
+    hero_scarcity: "La oferta termina pronto. Stock limitado.",
+    badge_shipping: "Envío Rápido desde Suiza",
+    badge_warranty: "Certificado Libre de BPA",
+    badge_payment: "Pago 100% Seguro",
+    swiss_trust_message: "Enviado desde Suiza. Revisamos que cada plato cumpla con nuestros estándares de seguridad antes de llegar a tu casa en 48h.",
+    feature_title: "Perfecto para Pequeños Exploradores",
+    feature_desc: "Nuestro Gyro Bowl utiliza tecnología giroscópica avanzada para mantener el recipiente interior nivelado en todo momento. Es el secreto para un hogar más limpio.",
+    feature_1: "Recipiente interior con rotación de 360 grados",
+    feature_2: "Material 100% libre de BPA y grado alimenticio",
+    feature_3: "Apto para lavavajillas e incluye tapa protectora",
+    shop_stock: "Solo en stock",
+    shop_sort: "Ordenar por:",
+    shop_sort_featured: "Destacado",
+    save_40: "Ahorra 30%",
+    save_30: "Ahorra 30%",
+    add_to_cart: "Añadir al Carrito",
+    add_to_cart_2: "Añadir al Carrito",
+    add_to_cart_3: "Añadir al Carrito",
+    product_3_name: "Pack Familiar (Set de 3)",
+    footer_desc: "Haciendo la paternidad un poco más fácil, plato a plato.",
+    footer_terms: "Términos de Servicio",
+    footer_privacy: "Política de Privacidad",
+    footer_contact: "Contacto",
+    footer_copy: "© 2026 GyroBowl Shop. Todos los derechos reservados.",
+    added_to_cart: "¡Añadido!"
   }
 };
 
@@ -160,12 +198,42 @@ const translations = {
 const SUPPORTED_LANGS = ['en', 'de', 'fr', 'it'];
 let currentLang = 'en';
 
-function detectLanguage() {
+async function detectLanguageByIP() {
+  try {
+    const res = await fetch('https://get.geojs.io/v1/ip/geo.json');
+    if (res.ok) {
+      const data = await res.json();
+      const country = data.country_code; // e.g. "CH", "DE", "FR"
+
+      const langMap = {
+        'DE': 'de', 'AT': 'de',
+        'FR': 'fr', 'BE': 'fr',
+        'IT': 'it'
+      };
+
+      // Si es Suiza (CH), tiene múltiples idiomas. Podemos basarnos en la IP para el país,
+      // pero para respetar si un suizo es francés, alemán o italiano, cruzamos su IP 
+      // con su navegador para mayor precisión, o forzamos Alemán por defecto.
+      if (country === 'CH') {
+        const browserLang = navigator.language.slice(0, 2).toLowerCase();
+        if (['de', 'fr', 'it'].includes(browserLang)) return browserLang;
+        return 'de'; // Por defecto alemán para Suiza
+      }
+
+      if (langMap[country]) {
+        return langMap[country];
+      }
+    }
+  } catch (error) {
+    console.warn("Geolocalización por IP fallida, usando idioma del navegador.");
+  }
+  
+  // Fallback si la API falla o el país no está en nuestro mapa
   const browserLang = navigator.language.slice(0, 2).toLowerCase();
   if (SUPPORTED_LANGS.includes(browserLang)) {
     return browserLang;
   }
-  return 'en'; // Default to English for everything else
+  return 'en';
 }
 
 // 3. Hydration Logic
@@ -191,11 +259,7 @@ function setLanguage(lang) {
 }
 
 // 4. Initialize
-document.addEventListener('DOMContentLoaded', () => {
-  // Detect & Set
-  const detected = detectLanguage();
-  setLanguage(detected);
-  
+document.addEventListener('DOMContentLoaded', async () => {
   // Bind Select Dropdown Event listener
   const langSelect = document.getElementById('langSwitcher');
   if (langSelect) {
@@ -203,9 +267,11 @@ document.addEventListener('DOMContentLoaded', () => {
       setLanguage(e.target.value);
     });
   }
+
+  // Detect & Set asíncrono
+  const detected = await detectLanguageByIP();
+  setLanguage(detected);
 });
-
-
 // 5. Original UI Interactions
 const navbar = document.querySelector('.navbar');
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://web-ventas-today.vercel.app/sitemap.xml

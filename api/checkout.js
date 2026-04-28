@@ -23,7 +23,7 @@ export default async function handler(req, res) {
         price_data: {
           currency: 'chf',
           product_data: {
-            name: 'Original Gyro Bowl 360°',
+            name: 'GyroBowl',
             images: ['https://web-ventas-today.vercel.app/gyro_main.png']
           },
           unit_amount: 2490, // 24.90 CHF in rappen

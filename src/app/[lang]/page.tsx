@@ -1,7 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { getDictionary } from '@/lib/get-dictionary';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
+import BuyButton from '@/components/BuyButton';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -20,7 +22,6 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
   const country = headerList.get('x-vercel-ip-country') || 'CH';
   
   const isSwitzerland = country === 'CH';
-  const currency = isSwitzerland ? 'CHF' : 'EUR';
   const price = isSwitzerland ? '24.90' : '22.90';
   const symbol = isSwitzerland ? 'CHF' : '€';
 
@@ -65,9 +66,11 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
              <span className="current-price">{price} {symbol}</span>
           </div>
 
-          <button className="btn-buy-now standout">
-            {dict.hero_btn}
-          </button>
+          <BuyButton 
+            text={dict.hero_btn} 
+            country={country} 
+            className="btn-buy-now standout" 
+          />
 
           {/* Trust Section */}
           <div className="trust-badges-hero">
@@ -87,6 +90,9 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
           
           <p style={{ marginTop: '2rem', fontSize: '12px', color: '#888', fontStyle: 'italic' }}>
             {dict.hero_scarcity}
+          </p>
+          <p style={{ marginTop: '1rem', fontSize: '14px', color: '#2ecc71', fontWeight: 'bold' }}>
+            ★ {dict.trust_parents}
           </p>
         </div>
       </header>
@@ -154,7 +160,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
         </div>
         <p className="copyright">{dict.footer_copy}</p>
         <p style={{ fontSize: '10px', marginTop: '20px', opacity: 0.5 }}>
-          Admin: <a href="/admin" style={{ color: 'inherit' }}>Dashboard Access</a>
+          Admin: <Link href="/admin" style={{ color: 'inherit' }}>Dashboard Access</Link>
         </p>
       </footer>
     </main>

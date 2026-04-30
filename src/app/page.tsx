@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import { headers } from 'next/headers';
 import styles from './page.module.css';
+import BuyButton from '@/components/BuyButton';
 
 export default async function ProductLanding() {
   const headerList = await headers();
+  const country = headerList.get('x-vercel-ip-country') || 'CH';
   const acceptLanguage = headerList.get('accept-language') || 'en';
   
   // Simple language detection for the button
@@ -61,9 +63,11 @@ export default async function ProductLanding() {
               </div>
             </div>
 
-            <button className={styles.buyButton}>
-              {buttonText}
-            </button>
+            <BuyButton 
+              text={buttonText} 
+              country={country} 
+              className={styles.buyButton} 
+            />
 
             {/* PAYMENT FLOW */}
             <div className={styles.paymentIcons}>

@@ -1,7 +1,8 @@
 import { getDictionary } from '@/lib/get-dictionary';
 
-export default async function AdminPage({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang);
+export default async function AdminPage({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
 
   return (
     <div className="admin-container" style={{ padding: '2rem', fontFamily: 'var(--font-main)' }}>

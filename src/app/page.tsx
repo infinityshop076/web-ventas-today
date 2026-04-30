@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import styles from './page.module.css';
 
 export default async function ProductLanding() {
-  const headerList = headers();
+  const headerList = await headers();
   const acceptLanguage = headerList.get('accept-language') || 'en';
   
   // Simple language detection for the button

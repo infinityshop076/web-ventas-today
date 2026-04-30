@@ -3,8 +3,9 @@ import { getDictionary } from '@/lib/get-dictionary';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 
-export async function generateMetadata({ params }: { params: { lang: string } }): Promise<Metadata> {
-  const dict = await getDictionary(params.lang);
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
   return {
     title: `GyroBowl - ${dict.hero_title_highlight}`,
     description: dict.hero_subtitle,
@@ -12,9 +13,10 @@ export async function generateMetadata({ params }: { params: { lang: string } })
   };
 }
 
-export default async function Page({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang);
-  const headerList = headers();
+export default async function Page({ params }: { params: Promise<{ lang: string }> }) {
+  const { lang } = await params;
+  const dict = await getDictionary(lang);
+  const headerList = await headers();
   const country = headerList.get('x-vercel-ip-country') || 'CH';
   
   const isSwitzerland = country === 'CH';

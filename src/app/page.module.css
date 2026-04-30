@@ -1,0 +1,177 @@
+.productContainer {
+  background-color: #ffffff;
+  min-height: 100vh;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+}
+
+.topBanner {
+  background-color: #000000;
+  color: #ffffff;
+  text-align: center;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.minimalNav {
+  padding: 20px 5%;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  text-transform: uppercase;
+}
+
+.heroSection {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 60px 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+}
+
+.imageCol {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageWrapper {
+  background: #fdfdfd;
+  border-radius: 24px;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.productImg {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.contentCol {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.productTitle {
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: #666;
+  letter-spacing: 0;
+  display: block;
+  margin-top: 10px;
+}
+
+.priceContainer {
+  display: flex;
+  gap: 40px;
+  padding: 20px 0;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.priceItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.currency {
+  font-size: 14px;
+  color: #888;
+  font-weight: 600;
+}
+
+.amount {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.buyButton {
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  padding: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.1s;
+}
+
+.buyButton:active {
+  transform: scale(0.98);
+}
+
+.paymentIcons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0;
+  opacity: 0.7;
+}
+
+.trustFooter {
+  font-size: 14px;
+  color: #666;
+  line-height: 2;
+  text-align: center;
+}
+
+.simpleFooter {
+  padding: 40px 5%;
+  text-align: center;
+  font-size: 12px;
+  color: #aaa;
+  border-top: 1px solid #f0f0f0;
+}
+
+@media (max-width: 900px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .productTitle {
+    font-size: 36px;
+  }
+  
+  .priceContainer {
+    justify-content: center;
+  }
+}

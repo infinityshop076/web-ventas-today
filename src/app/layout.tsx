@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "GyroBowl Shop",
-  description: "Stop the mess with the Original 360 Gyro Bowl.",
+  title: "Baby-Teller 360",
+  description: "Schluss mit Essen auf dem Boden mit der originalen Baby-Teller 360.",
 };
 
 export default function RootLayout({

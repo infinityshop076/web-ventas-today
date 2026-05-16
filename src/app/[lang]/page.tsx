@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   });
 
   return {
-    title: `GyroBowl - ${dict.hero_title_highlight}`,
+    title: `Baby-Teller 360 - ${dict.hero_title_highlight}`,
     description: dict.hero_subtitle,
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
     alternates: {
@@ -45,9 +45,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
       {/* Minimalist Navbar */}
       <nav className="navbar">
-        <div className="nav-logo">
-          <span className="logo-text">GyroBowl</span>
-        </div>
+          <span className="logo-text">Baby-Teller 360</span>
         <LanguageSwitcher currentLang={lang} />
       </nav>
 
@@ -164,7 +162,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
 
       {/* Professional Footer */}
       <footer className="footer">
-        <div className="footer-logo">GyroBowl Shop</div>
+        <div className="footer-logo">Baby-Teller 360</div>
         <div className="footer-links">
            <a href="#">{dict.footer_shipping}</a>
            <a href="#">{dict.footer_terms}</a>

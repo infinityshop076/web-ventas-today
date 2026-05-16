@@ -355,3 +355,123 @@ body {
     padding: 15px 5%;
   }
 }
+
+/* Language Selector Styles */
+.language-selector {
+  position: absolute;
+  right: 5%;
+  z-index: 100;
+}
+
+.lang-trigger {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 6px 12px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.lang-trigger:hover {
+  border-color: var(--primary);
+  background: var(--bg-neutral);
+}
+
+.lang-flag {
+  font-size: 16px;
+}
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+}
+
+.chevron.open {
+  transform: rotate(180deg);
+}
+
+.lang-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  list-style: none;
+  padding: 8px;
+  min-width: 150px;
+  z-index: 100;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lang-dropdown li {
+  margin-bottom: 4px;
+}
+
+.lang-dropdown li:last-child {
+  margin-bottom: 0;
+}
+
+.lang-dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-main);
+  font-size: 14px;
+  text-align: left;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.lang-dropdown button:hover {
+  background: var(--bg-neutral);
+}
+
+.lang-dropdown button.active {
+  background: var(--bg-neutral);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.loc-flag {
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .language-selector {
+    position: relative;
+    right: 0;
+    margin-top: 10px;
+  }
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

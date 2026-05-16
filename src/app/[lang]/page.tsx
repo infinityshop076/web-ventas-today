@@ -4,14 +4,25 @@ import { getDictionary } from '@/lib/get-dictionary';
 import type { Metadata } from 'next';
 import { headers } from 'next/headers';
 import BuyButton from '@/components/BuyButton';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
   const dict = await getDictionary(lang);
+  
+  const locales = ['de', 'fr', 'en', 'es'];
+  const languages: Record<string, string> = {};
+  locales.forEach(l => {
+    languages[l] = `/${l}`;
+  });
+
   return {
     title: `GyroBowl - ${dict.hero_title_highlight}`,
     description: dict.hero_subtitle,
     viewport: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+    alternates: {
+      languages: languages,
+    }
   };
 }
 
@@ -37,6 +48,7 @@ export default async function Page({ params }: { params: Promise<{ lang: string 
         <div className="nav-logo">
           <span className="logo-text">GyroBowl</span>
         </div>
+        <LanguageSwitcher currentLang={lang} />
       </nav>
 
       {/* Hero Section */}
